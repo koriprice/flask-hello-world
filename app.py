@@ -35,15 +35,15 @@ def db_insert():
     conn = psycopg2.connect("postgres://lab10_db_dj5p_user:Gzt7PjRQJ45ne27wUD6P52m6bJiTJ5bE@dpg-co51ku779t8c739a5ngg-a/lab10_db_dj5p")
     cur = conn.cursor()
     cur.execute('''
-    INSERT INTO Basketball (First, Last, City, Name, Number)
+    INSERT INTO Basketball (First, Last, City, Name, Number) 
     Values
-    ('Jayson', 'Tatum', Boston', 'Celtics', 0),
+    ('Jayson', 'Tatum', 'Boston', 'Celtics', 0),
     ('Stephen', 'Curry', 'San Francisco', 'Warriors', 30),
     ('Nikola', 'Jokic', 'Denver', 'Nuggets', 15),
     ('Kawhi', 'Leonard', 'Los Angeles', 'Clippers', 2);
     ''')
     conn.commit()
-    comm.close()
+    conn.close()
     return "Basketball Table Successfully Populated"
 
 @app.route("/db_select")
